@@ -65,7 +65,7 @@ The dataset folder names should be lower-case and structured as follows.
 ```
 
 ## Downloading the pre-trained model
-Download the pre-trained ST-MFNet from [here](https://drive.google.com/file/d/1rT7fjEUkbS0xzDyNe4GCJ1JM7WXUOwYr/view?usp=sharing).
+Download the pre-trained ST-MFNet from [here](https://drive.google.com/file/d/1s5JJdt5X69AO2E2uuaes17aPwlWIQagG/view?usp=sharing).
 
 ## Evaluation
 ```
