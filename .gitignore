@@ -1,0 +1,7 @@
+*__pycache__*
+*.vscode*
+*.ipynb_checkpoints
+*.pyc
+*train_results*
+*eval_results*
+*.pth
