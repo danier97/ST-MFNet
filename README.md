@@ -35,7 +35,7 @@ pip install opencv-python==4.5.1.48
 - Download UCF101 quintuplets from [here](https://sites.google.com/view/xiangyuxu/qvi_nips19).
 - Download DAVIS sequences from [here](https://sites.google.com/view/xiangyuxu/qvi_nips19).
 - Download SNU-FILM dataset from [here](https://myungsub.github.io/CAIN/).
-- Download VFITex dataset from [here](https://TODO:FILLTHIS).
+- Download VFITex dataset from [here](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EsRvHziGSA9BpQ7J02GO9PoBpVzoXFlrHHjwHCYYAsDIOQ?e=gYxehR).
 
 The dataset folder names should be lower-case and structured as follows.
 ```
