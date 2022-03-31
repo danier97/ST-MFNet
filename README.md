@@ -1,8 +1,9 @@
-# Spatio-Temporal Multi-Flow Network for Video Frame Interpolation
+# ST-MFNet: A Spatio-Temporal Multi-Flow Network for Frame Interpolation
 
-#### Duolikun Danier, Fan Zhang, David Bull
+### Duolikun Danier, Fan Zhang, David Bull
+### Accepted in CVPR 2022.
 
-[Project](https://danielism97.github.io/ST-MFNet) | [Paper](https://arxiv.org/abs/2111.15483)
+[Project](https://danielism97.github.io/ST-MFNet) | [Paper](https://arxiv.org/abs/2111.15483) | [Video](https://drive.google.com/file/d/1zpE3rCQNJi4e8ADNWKbJA5wTvPllKZSj/view)
 
 
 ## Dependencies and Installation
@@ -84,7 +85,7 @@ where `<dataset name>` should be the same as the class names defined in `data/te
 ## Citation
 ```
 @misc{danier2021spatiotemporal,
-     title={Spatio-Temporal Multi-Flow Network for Video Frame Interpolation}, 
+     title={ST-MFNet: A Spatio-Temporal Multi-Flow Network for Frame Interpolation}, 
      author={Duolikun Danier and Fan Zhang and David Bull},
      year={2021},
      eprint={2111.15483},
