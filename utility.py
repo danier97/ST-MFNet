@@ -1,7 +1,68 @@
 import torch
 import numpy as np
 import cv2
+import torch.optim as optim
+import torch.optim.lr_scheduler as lrs
 from metrics import pytorch_ssim
+
+
+def make_optimizer(args, my_model):
+    trainable = filter(lambda x: x.requires_grad, my_model.parameters())
+
+    if args.optimizer == 'SGD':
+        optimizer_function = optim.SGD
+        kwargs = {'momentum': 0.9}
+    elif args.optimizer == 'ADAM':
+        optimizer_function = optim.Adam
+        kwargs = {
+            'betas': (0.9, 0.999),
+            'eps': 1e-08
+        }
+    elif args.optimizer == 'ADAMax':
+        optimizer_function = optim.Adamax
+        kwargs = {
+            'betas': (0.9, 0.999),
+            'eps': 1e-08
+        }
+    elif args.optimizer == 'RMSprop':
+        optimizer_function = optim.RMSprop
+        kwargs = {'eps': 1e-08}
+
+    kwargs['lr'] = args.lr
+    kwargs['weight_decay'] = args.weight_decay
+
+    return optimizer_function(trainable, **kwargs)
+
+
+def make_scheduler(args, my_optimizer):
+    if args.decay_type == 'step':
+        scheduler = lrs.StepLR(
+            my_optimizer,
+            step_size=args.lr_decay,
+            gamma=args.gamma
+        )
+    elif args.decay_type.find('step') >= 0:
+        milestones = args.decay_type.split('_')
+        milestones.pop(0)
+        milestones = list(map(lambda x: int(x), milestones))
+        scheduler = lrs.MultiStepLR(
+            my_optimizer,
+            milestones=milestones,
+            gamma=args.gamma
+        )
+    elif args.decay_type == 'plateau':
+        scheduler = lrs.ReduceLROnPlateau(
+            my_optimizer,
+            mode='max',
+            factor=args.gamma,
+            patience=args.patience,
+            threshold=0.01, # metric to be used is psnr
+            threshold_mode='abs',
+            verbose=True
+        )
+
+    return scheduler
+
 
 def gaussian_kernel(sz, sigma):
     k = torch.arange(-(sz-1)/2, (sz+1)/2)

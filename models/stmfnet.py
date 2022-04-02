@@ -315,4 +315,7 @@ class STMFNet(torch.nn.Module):
         if w_padded:
             output = output[:, :, :, 0:w0]
 
-        return output
+        if self.training:
+            return {'frame1': output}
+        else:
+            return output

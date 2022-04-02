@@ -31,12 +31,13 @@ pip install opencv-python==4.5.1.48
 ## Model
 <img src="https://danielism97.github.io/ST-MFNet/overall.svg" alt="Paper" width="60%">
 
-## Preparing test data
+## Preparing datasets
+### Training:
+[[Vimeo-90K]](http://toflow.csail.mit.edu/) | [[BVI-DVC quintuplets]](TODO)
 
-- Download UCF101 quintuplets from [here](https://sites.google.com/view/xiangyuxu/qvi_nips19).
-- Download DAVIS sequences from [here](https://sites.google.com/view/xiangyuxu/qvi_nips19).
-- Download SNU-FILM dataset from [here](https://myungsub.github.io/CAIN/).
-- Download VFITex dataset from [here](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EsRvHziGSA9BpQ7J02GO9PoBpVzoXFlrHHjwHCYYAsDIOQ?e=gYxehR).
+### Testing: 
+[[UCF101]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[DAVIS]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[SNU-FILM]](https://myungsub.github.io/CAIN/) | [[VFITex]](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EsRvHziGSA9BpQ7J02GO9PoBpVzoXFlrHHjwHCYYAsDIOQ?e=gYxehR)
+
 
 The dataset folder names should be lower-case and structured as follows.
 ```
@@ -57,11 +58,21 @@ The dataset folder names should be lower-case and structured as follows.
     |   ├──── test-hard/
     |   ├──── test-extreme/
     |   └──── data/
-    └──── vfitex/
-        ├──── beach02_4K_mitch/
-        ├──── bluewater_4K_pexels/
-        ├──── ...
-        └──── waterfall_4K_pexels/
+    ├──── vfitex/
+    |   ├──── beach02_4K_mitch/
+    |   ├──── bluewater_4K_pexels/
+    |   ├──── ...
+    |   └──── waterfall_4K_pexels/
+    ├──── bvidvc/quintuplets
+    |   ├──── 00000/
+    |   ├──── 00001/
+    |   ├──── ...
+    |   └──── 17599/
+    └──── vimeo_septuplet/
+        ├──── sequences/
+        ├──── readme/
+        ├──── sep_testlist.txt
+        └──── sep_trainlist.txt
 
 ```
 
@@ -78,6 +89,25 @@ python evaluate.py \
 --dataset <dataset name>
 ```
 where `<dataset name>` should be the same as the class names defined in `data/testsets.py`, e.g. `Snufilm_extreme_quintuplet`.
+
+## Training
+Feel free to experiment with other options, but here is an example:
+```
+python train.py \
+--net STMFNet \
+--data_dir <data directory> \
+--out_dir ./train_results \
+--epochs 70 \
+--batch_size 4 \
+--loss 1*Lap \
+--patch_size 256 \
+--lr 0.001 \
+--decay_type plateau \
+--gamma 0.5 \
+--patience 5 \
+--optimizer ADAMax
+```
+
 
 ## Example results
 <img src="https://danielism97.github.io/ST-MFNet/qualitative.png" alt="Paper" width="100%">
