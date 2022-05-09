@@ -17,6 +17,7 @@ The following packages were used to evaluate the model.
 - numpy==1.19.2
 - pillow==8.1.2
 - cupy==9.0.0
+- sk-video==1.1.10
 
 Installation with anaconda:
 
@@ -26,16 +27,17 @@ conda activate stmfnet
 conda install pytorch==1.7.1 torchvision==0.8.2 cudatoolkit=10.1 -c pytorch
 conda install -c conda-forge cupy
 pip install opencv-python==4.5.1.48
+pip install sk-video==1.1.10
 ```
 
 ## Model
 <img src="https://danielism97.github.io/ST-MFNet/overall.svg" alt="Paper" width="60%">
 
 ## Preparing datasets
-### Training:
+### Training sets:
 [[Vimeo-90K]](http://toflow.csail.mit.edu/) | [[BVI-DVC quintuplets]](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EnHgdYU1cwNEhl-3BXFL8ncBXXGpg7u3N_oiXQ4OJuLXtw?e=fxdITc)
 
-### Testing: 
+### Test sets: 
 [[UCF101]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[DAVIS]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[SNU-FILM]](https://myungsub.github.io/CAIN/) | [[VFITex]](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EsRvHziGSA9BpQ7J02GO9PoBpVzoXFlrHHjwHCYYAsDIOQ?e=gYxehR)
 
 
@@ -79,7 +81,7 @@ The dataset folder names should be lower-case and structured as follows.
 ## Downloading the pre-trained model
 Download the pre-trained ST-MFNet from [here](https://drive.google.com/file/d/1s5JJdt5X69AO2E2uuaes17aPwlWIQagG/view?usp=sharing).
 
-## Evaluation
+## Evaluation (on test sets)
 ```
 python evaluate.py \
 --net STMFNet \
@@ -89,6 +91,19 @@ python evaluate.py \
 --dataset <dataset name>
 ```
 where `<dataset name>` should be the same as the class names defined in `data/testsets.py`, e.g. `Snufilm_extreme_quintuplet`.
+
+## Evaluation (on videos)
+```
+python interpolate_yuv.py \
+--net STMFNet \
+--checkpoint <path to pre-trained model (.pth file)> \
+--yuv_path <path to input YUV file> \
+--size <spatial size of input YUV file, e.g. 1920x1080>
+--out_fps <output FPS, e.g. 60>
+--out_dir <desired output dir>
+```
+See more details in `interpolate_yuv.py`. Note the script provided is for up-sampling `.yuv` files. To process `.mp4` files, one can modify the frame reading parts of the script, or simply convert `mp4` to `yuv` using [ffmpeg](https://ffmpeg.org/) then use this script.
+
 
 ## Training
 Feel free to experiment with other options, but here is an example:
