@@ -55,11 +55,11 @@ The dataset folder names should be lower-case and structured as follows.
     |   ├──── ...
     |   └──── walking/
     ├──── snufilm/
-    |   ├──── test-easy/
-    |   ├──── test-medium/
-    |   ├──── test-hard/
-    |   ├──── test-extreme/
-    |   └──── data/
+    |   ├──── test-easy.txt
+    |   ├──── test-medium.txt
+    |   ├──── test-hard.txt
+    |   ├──── test-extreme.txt
+    |   └──── data/SNU-FILM/test/...
     ├──── vfitex/
     |   ├──── beach02_4K_mitch/
     |   ├──── bluewater_4K_pexels/
