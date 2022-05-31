@@ -87,7 +87,7 @@ class FoldUnfold():
 
         if height % 2 or width % 2 or patch_size % 2 or overlap % 2:
             print("only defined for even values of height, width, patch_size size and overlap, odd values will reconstruct incorrectly")
-            return 1
+            return
 
         self.height = height
         self.width = width

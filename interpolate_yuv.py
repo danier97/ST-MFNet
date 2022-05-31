@@ -15,9 +15,9 @@ parser.add_argument('--net', type=str, default='STMFNet')
 parser.add_argument('--checkpoint', type=str, default='train_results/checkpoint/model_epoch070.pth')
 parser.add_argument('--yuv_path', type=str, help='path of the input YUV file')
 parser.add_argument('--size', type=str, default='1920x1080', help='resolution of the input YUV file')
-parser.add_argument('--patch_size', type=int, default=1080, help='patch size for block-wise eval')
-parser.add_argument('--overlap', type=int, default=32, help='overlap between patches for block-wise eval')
-parser.add_argument('--batch_size', type=int, default=16, help='batch size for block-wise eval')
+parser.add_argument('--patch_size', type=int, default=None, help='patch size for block-wise eval')
+parser.add_argument('--overlap', type=int, default=None, help='overlap between patches for block-wise eval, SHOULD BE EVEN NUMBER')
+parser.add_argument('--batch_size', type=int, default=None, help='batch size for block-wise eval')
 parser.add_argument('--out_fps', type=int, default=30, help='fps of the output mp4')
 parser.add_argument('--out_dir', type=str, default='.', help='dir to store output video')
 
@@ -33,6 +33,10 @@ parser.add_argument('--finetune_pwc', dest='finetune_pwc', default=False,  actio
 def main():
     args = parser.parse_args()
     torch.cuda.set_device(args.gpu_id)
+
+    if args.patch_size != 0:
+        print(f'====Note: Using block-wise evaluation with block size={args.patch_size}, overlap={args.overlap}, batch size={args.batch_size}')
+        print('====This may generate unwanted block artefacts.')
 
     # Initiate the model
     model = getattr(models, args.net)(args).cuda()
@@ -98,7 +102,7 @@ def main():
         frame3 = TF.to_tensor(rawFrame3)[None,...].cuda()
 
         with torch.no_grad():
-            if height == 2160:
+            if args.patch_size != None:
                 #### (NOT RECOMMENDED) block-wise evaluation if GPU memory is not enough
                 #### This will produce artefacts near block edges
                 patch_maker = FoldUnfold(height, width, patch_size=args.patch_size, overlap=args.overlap)
