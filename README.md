@@ -129,13 +129,13 @@ python train.py \
 
 ## Citation
 ```
-@misc{danier2021spatiotemporal,
-     title={ST-MFNet: A Spatio-Temporal Multi-Flow Network for Frame Interpolation}, 
-     author={Duolikun Danier and Fan Zhang and David Bull},
-     year={2021},
-     eprint={2111.15483},
-     archivePrefix={arXiv},
-     primaryClass={cs.CV}
+@InProceedings{Danier_2022_CVPR,
+    author    = {Danier, Duolikun and Zhang, Fan and Bull, David},
+    title     = {ST-MFNet: A Spatio-Temporal Multi-Flow Network for Frame Interpolation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {3521-3531}
 }
 ```
 
