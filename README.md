@@ -3,7 +3,7 @@
 ### Duolikun Danier, Fan Zhang, David Bull
 ### Accepted in CVPR 2022.
 
-[Project](https://danielism97.github.io/ST-MFNet) | [Paper](https://openaccess.thecvf.com/content/CVPR2022/html/Danier_ST-MFNet_A_Spatio-Temporal_Multi-Flow_Network_for_Frame_Interpolation_CVPR_2022_paper.html) | [arXiv](https://arxiv.org/abs/2111.15483) | [Video](https://drive.google.com/file/d/1zpE3rCQNJi4e8ADNWKbJA5wTvPllKZSj/view) | [Poster](https://danielism97.github.io/ST-MFNet/ST_MFNet_CVPR_poster.pdf)
+[Project](https://danier97.github.io/ST-MFNet) | [Paper](https://openaccess.thecvf.com/content/CVPR2022/html/Danier_ST-MFNet_A_Spatio-Temporal_Multi-Flow_Network_for_Frame_Interpolation_CVPR_2022_paper.html) | [arXiv](https://arxiv.org/abs/2111.15483) | [Video](https://drive.google.com/file/d/1zpE3rCQNJi4e8ADNWKbJA5wTvPllKZSj/view) | [Poster](https://danier97.github.io/ST-MFNet/ST_MFNet_CVPR_poster.pdf)
 
 
 ## Dependencies and Installation
@@ -31,7 +31,7 @@ pip install sk-video==1.1.10
 ```
 
 ## Model
-<img src="https://danielism97.github.io/ST-MFNet/overall.svg" alt="Paper" width="60%">
+<img src="https://danier97.github.io/ST-MFNet/overall.svg" alt="Paper" width="60%">
 
 ## Preparing datasets
 ### Training sets:
@@ -125,7 +125,7 @@ python train.py \
 
 
 ## Example results
-<img src="https://danielism97.github.io/ST-MFNet/qualitative.png" alt="Paper" width="100%">
+<img src="https://danier97.github.io/ST-MFNet/qualitative.png" alt="Paper" width="100%">
 
 ## Citation
 ```
