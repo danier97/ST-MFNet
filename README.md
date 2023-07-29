@@ -37,8 +37,7 @@ pip install sk-video==1.1.10
 ### Training sets:
 [[Vimeo-90K]](http://toflow.csail.mit.edu/) | [[BVI-DVC quintuplets]](https://drive.google.com/file/d/1i_CoqiNrZ2AU8DKjU8aHM1jIaDGW0fE5/view?usp=sharing)
 ### Test sets: 
-[[UCF101]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[DAVIS]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[SNU-FILM]](https://myungsub.github.io/CAIN/) | [[VFITex]](https://uob-my.sharepoint.com/:f:/g/personal/mt20523_bristol_ac_uk/EsRvHziGSA9BpQ7J02GO9PoBpVzoXFlrHHjwHCYYAsDIOQ?e=gYxehR)
-
+[[UCF101]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[DAVIS]](https://sites.google.com/view/xiangyuxu/qvi_nips19) | [[SNU-FILM]](https://myungsub.github.io/CAIN/) | [[VFITex]](https://drive.google.com/file/d/140TciNM-LFeSPAQlAQBT4J4cs8Sp832w/view?usp=sharing)
 
 The dataset folder names should be lower-case and structured as follows.
 ```
