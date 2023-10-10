@@ -5,3 +5,5 @@
 *train_results*
 *eval_results*
 *.pth
+*.mp4
+*.avi
